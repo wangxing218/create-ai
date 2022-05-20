@@ -1,0 +1,28 @@
+{
+  "name": "create-ai",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "bin": {
+    "create-ai": "main.js",
+    "ai": "main.js"
+  },
+  "scripts": {
+    "dev": "ai"
+  },
+  "keywords": [
+    "vue",
+    "vite",
+    "ai"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wangxing218/create-ai.git"
+  },
+  "author": "wangxing218",
+  "license": "ISC",
+  "dependencies": {
+    "kolorist": "^1.5.1",
+    "prompts": "^2.4.2"
+  }
+}
