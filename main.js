@@ -103,7 +103,7 @@ const { version } = require('./package.json')
   const targetDir = cwdDir(info.projectName)
   const sourceDir = rootDir('framework', info.template)
   if (info.overwrite === 2) {
-    fs.rmSync(targetDir, { recursive: true, force: true })
+    emptyDir(targetDir)
   }
   if (!fs.existsSync(targetDir)) {
     fs.mkdirSync(targetDir)
@@ -144,11 +144,28 @@ function isEmpty(path) {
   return files.length === 0 || (files.length === 1 && files[0] === '.git')
 }
 
+// 清空文件夹
+function emptyDir(dir) {
+  if (!fs.existsSync(dir)) {
+    return
+  }
+  for (const file of fs.readdirSync(dir)) {
+    const abs = path.resolve(dir, file)
+    // baseline is Node 12 so can't use rmSync :(
+    if (fs.lstatSync(abs).isDirectory()) {
+      emptyDir(abs)
+      fs.rmdirSync(abs)
+    } else {
+      fs.unlinkSync(abs)
+    }
+  }
+}
+
 // 复制文件夹
 function copy(src, dest, excludes = ['node_modules', 'dist']) {
   const stat = fs.statSync(src)
   if (stat.isDirectory()) {
-    if (excludes.includes(path.basename(src))) return
+    if (excludes && excludes.includes(path.basename(src))) return
     fs.mkdirSync(dest, { recursive: true })
     for (const file of fs.readdirSync(src)) {
       const srcFile = path.resolve(src, file)
