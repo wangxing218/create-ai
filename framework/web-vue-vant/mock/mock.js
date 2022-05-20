@@ -7,12 +7,10 @@ const { api, resp, mock } = require('apite')
  * data
  */
 api.get('/data', () =>
-  resp.ok(
-    mock({
-      id: 1,
-      name: '@cname',
-    }),
-  ),
+  resp.mock({
+    id: 1,
+    name: '@cname',
+  }),
 )
 
 // mock list
