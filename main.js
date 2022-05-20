@@ -109,7 +109,7 @@ const { version } = require('./package.json')
     fs.mkdirSync(targetDir)
   }
   try {
-    copy(sourceDir, targetDir)
+    copy(sourceDir, targetDir, ['node_modules', 'dist'])
     console.log(
       green(`
   项目初始化成功，请按以下命令执行：
@@ -162,7 +162,7 @@ function emptyDir(dir) {
 }
 
 // 复制文件夹
-function copy(src, dest, excludes = ['node_modules', 'dist']) {
+function copy(src, dest, excludes) {
   const stat = fs.statSync(src)
   if (stat.isDirectory()) {
     if (excludes && excludes.includes(path.basename(src))) return
@@ -170,7 +170,7 @@ function copy(src, dest, excludes = ['node_modules', 'dist']) {
     for (const file of fs.readdirSync(src)) {
       const srcFile = path.resolve(src, file)
       const destFile = path.resolve(dest, file)
-      copy(srcFile, destFile, null)
+      copy(srcFile, destFile, excludes)
     }
   } else {
     fs.copyFileSync(src, dest)
