@@ -19,10 +19,15 @@
     "type": "git",
     "url": "git+https://github.com/wangxing218/create-ai.git"
   },
+  "files": [
+    "framework",
+    "main.js"
+  ],
   "author": "wangxing218",
   "license": "ISC",
   "dependencies": {
     "kolorist": "^1.5.1",
+    "minimist": "^1.2.6",
     "prompts": "^2.4.2"
   }
 }
