@@ -25,8 +25,8 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': resolve('src'),
-      '@image': resolve('src/asset/image'),
       '@css': resolve('src/asset/css'),
+      '@image': resolve('src/asset/image'),
     },
   },
   plugins: [

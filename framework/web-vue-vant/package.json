@@ -14,6 +14,7 @@
     "axios": "^0.27.2",
     "nprogress": "^0.2.0",
     "pinia": "^2.0.14",
+    "qs": "^6.10.3",
     "vant": "^3.4.9",
     "vue": "^3.2.34",
     "vue-router": "^4.0.15"
@@ -21,6 +22,7 @@
   "devDependencies": {
     "@types/node": "^17.0.35",
     "@types/nprogress": "^0.2.0",
+    "@types/qs": "^6.9.7",
     "@vitejs/plugin-vue": "^2.3.3",
     "@vitejs/plugin-vue-jsx": "^1.3.10",
     "apite": "^1.4.1",

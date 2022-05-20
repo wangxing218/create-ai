@@ -6,13 +6,13 @@
 </template>
 
 <script lang="ts" setup>
-import { get } from '../service/ajax'
+import { get, post, postForm } from '@/service/ajax'
 import { ref } from 'vue'
 
 const appName = ref('Vue App')
 
 const getInfo = async () => {
-  const info = await get('/data')
+  const info = await post('/data', { id: 12, name: '张三', body: [1, 'wef'] })
   appName.value = info.result.name
 }
 </script>

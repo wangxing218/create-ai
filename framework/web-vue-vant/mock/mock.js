@@ -6,10 +6,12 @@ const { api, resp, mock } = require('apite')
 /**
  * data
  */
-api.get('/data', () =>
+api.get('/data', (ctx) =>
   resp.mock({
     id: 1,
     name: '@cname',
+    query: ctx.query,
+    post: ctx.post,
   }),
 )
 

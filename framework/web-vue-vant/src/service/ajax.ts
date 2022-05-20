@@ -1,4 +1,5 @@
 import axios, { AxiosRequestConfig } from 'axios'
+import qs from 'qs'
 import nprogress from 'nprogress'
 import { Toast } from 'vant'
 import 'nprogress/nprogress.css'
@@ -46,6 +47,9 @@ instance.interceptors.request.use((config) => {
     ;(opt.headers as any)['Content-Type'] =
       opt.requestType === 'form' ? 'application/x-www-form-urlencoded' : 'multipart/form-data'
   }
+  if (opt.requestType === 'form') {
+    opt.data = qs.stringify(opt.data, { arrayFormat: 'repeat' })
+  }
   return opt
 })
 
@@ -75,7 +79,6 @@ const ajax = async (opt: RequestConfig) => {
   // 发起请求
   try {
     const resp = await instance(config)
-    console.log('resp :>> ', resp)
     const res = resp.data
     if (typeof res === 'string') return Promise.resolve(res)
     if (res.code !== config.successCode) return handleError(res)
@@ -108,9 +111,9 @@ export const get = (url: string, params: any = {}, opt?: RequestConfig) => {
  * @param {object} data
  * @param {RequestConfig} opt
  */
-export const post = (url: string, data: any = {}, opt: RequestConfig) => {
+export const post = (url: string, data: any = {}, opt?: RequestConfig) => {
   return ajax({
-    ...opt,
+    ...(opt as RequestConfig),
     method: 'post',
     url,
     data,
@@ -123,13 +126,13 @@ export const post = (url: string, data: any = {}, opt: RequestConfig) => {
  * @param {object} data
  * @param {RequestConfig} opt
  */
-export const postFile = (url: string, data: any = {}, opt: RequestConfig) => {
+export const postFile = (url: string, data: any = {}, opt?: RequestConfig) => {
   let formData = new FormData()
   for (let key in data) {
     formData.append(key, data[key])
   }
   return ajax({
-    ...opt,
+    ...(opt as RequestConfig),
     method: 'post',
     requestType: 'file',
     url,
@@ -143,9 +146,9 @@ export const postFile = (url: string, data: any = {}, opt: RequestConfig) => {
  * @param {object} data
  * @param {RequestConfig} opt
  */
-export const postForm = (url: string, data = {}, opt: RequestConfig) => {
+export const postForm = (url: string, data = {}, opt?: RequestConfig) => {
   return ajax({
-    ...opt,
+    ...(opt as RequestConfig),
     method: 'post',
     requestType: 'form',
     url,
