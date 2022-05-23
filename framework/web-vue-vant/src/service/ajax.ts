@@ -70,7 +70,7 @@ const ajax = async (opt: RequestConfig) => {
   // 自动处理错误
   function handleError(err: any) {
     if (config.errTip === true) {
-      Toast(err.msg || 'Request Error')
+      Toast(err.msg || err.message || 'Request Error')
     } else if (typeof config.errTip === 'function') {
       config.errTip(err)
     }
