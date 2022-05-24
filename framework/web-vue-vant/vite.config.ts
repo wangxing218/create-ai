@@ -20,7 +20,7 @@ export default defineConfig({
     jsxInject: "import { h } from 'vue';",
   },
   server: {
-    port: 9100,
+    port: 9000,
   },
   resolve: {
     alias: {
