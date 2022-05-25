@@ -14,6 +14,7 @@ Typescript，更好的类型推断和智能提示，助力大型应用开发
 - pinia @2.x
 - vue-router @4.x
 - axios @0.27.x
+- vant @3.x
 
 ## 环境要求
 

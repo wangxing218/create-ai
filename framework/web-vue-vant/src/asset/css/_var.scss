@@ -35,30 +35,48 @@ $size-hg: 50px;
 
 // 生成颜色样式列表
 @mixin setColor($prefix: 'color', $css: 'color') {
-  @each $name, $value in ('black', $color-black), ('dark', $color-dark), ('gray', $color-gray),
-    ('light', $color-light), ('white', $color-white), ('blue', $color-blue), ('green', $color-green),
-    ('orange', $color-orange), ('yellow', $color-yellow), ('red', $color-red),
-    ('text-1', $color-text-1), ('text-2', $color-text-2), ('text-3', $color-text-3),
-    ('text-4', $color-text-4)
-  {
+
+  @each $name,
+  $value in ('black', $color-black),
+  ('dark', $color-dark),
+  ('gray', $color-gray),
+  ('light', $color-light),
+  ('white', $color-white),
+  ('blue', $color-blue),
+  ('green', $color-green),
+  ('orange', $color-orange),
+  ('yellow', $color-yellow),
+  ('red', $color-red),
+  ('text-1', $color-text-1),
+  ('text-2', $color-text-2),
+  ('text-3', $color-text-3),
+  ('text-4', $color-text-4) {
     .#{$prefix}-#{$name} {
-      #{$css}: $value !important;
+      #{$css}: $value  !important;
     }
   }
 }
 
 // 生成边距和填充尺寸
 @mixin setMarginPadding($prefix, $css) {
-  @each $name, $size in ('0', $size-0), ('xs', $size-xs), ('sm', $size-sm), ('md', $size-md),
-    ('bg', $size-bg), ('lg', $size-lg), ('hg', $size-hg)
-  {
+
+  @each $name,
+  $size in ('0', $size-0),
+  ('xs', $size-xs),
+  ('sm', $size-sm),
+  ('md', $size-md),
+  ('bg', $size-bg),
+  ('lg', $size-lg),
+  ('hg', $size-hg) {
     .#{$prefix}-#{$name} {
-      @if type-of($css) ==list {
+      @if type-of($css)==list {
         @each $item in $css {
-          #{$item}: $size !important;
+          #{$item}: $size  !important;
         }
-      } @else {
-        #{$css}: $size !important;
+      }
+
+      @else {
+        #{$css}: $size  !important;
       }
     }
   }
@@ -95,17 +113,23 @@ $size-hg: 50px;
 
 // 生成字体尺寸
 @mixin setFontSize($prefix: font) {
-  @each $name, $size in ('xs', $font-xs), ('sm', $font-sm), ('md', $font-md), ('bg', $font-bg),
-    ('lg', $font-lg), ('hg', $font-hg)
-  {
+
+  @each $name,
+  $size in ('xs', $font-xs),
+  ('sm', $font-sm),
+  ('md', $font-md),
+  ('bg', $font-bg),
+  ('lg', $font-lg),
+  ('hg', $font-hg) {
     .#{$prefix}-#{$name} {
-      font-size: $size !important;
+      font-size: $size  !important;
     }
   }
 }
 
 // 清除浮动
 @mixin clearfix {
+
   &:before,
   &:after {
     content: '';
