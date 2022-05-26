@@ -3,9 +3,8 @@ import { defineConfig } from 'vite'
 import { vite2Ext } from 'apite'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
-import styleImport, { VantResolve } from 'vite-plugin-style-import'
+import styleImport from 'vite-plugin-style-import'
 import autoprefixer from 'autoprefixer'
-import pxtorem from 'postcss-pxtorem'
 
 export default defineConfig({
   base: './',
@@ -41,20 +40,27 @@ export default defineConfig({
     }),
     // styleImport
     styleImport({
-      resolves: [VantResolve()],
+      libs: [
+        {
+          libraryName: '@arco-design/web-vue',
+          esModule: true,
+          resolveStyle: (name) => `@arco-design/web-vue/es/${name}/style/index.js`,
+        },
+      ],
     }),
   ],
   css: {
     postcss: {
-      plugins: [
-        autoprefixer(),
-        pxtorem({
-          propList: ['*'],
-          rootValue: 100,
-        }),
-      ],
+      plugins: [autoprefixer({})],
     },
     preprocessorOptions: {
+      less: {
+        // 主题定制
+        modifyVars: {
+          // 'arcoblue-6': '#0080ff',
+        },
+        javascriptEnabled: true,
+      },
       scss: {
         additionalData: `@import "@css/var";`,
       },
