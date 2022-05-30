@@ -1,0 +1,53 @@
+{
+  "name": "node-koa",
+  "version": "1.0.0",
+  "description": "轻量级node后端框架",
+  "main": "main.js",
+  "scripts": {
+    "dev": "nodemon src/main.ts",
+    "build": "node scripts/build.js",
+    "start": "node main.js"
+  },
+  "keywords": [
+    "koa",
+    "ts"
+  ],
+  "author": "wangxing218",
+  "license": "ISC",
+  "dependencies": {
+    "eureka-js-client": "^4.5.0",
+    "fs-extra": "^10.1.0",
+    "koa": "^2.13.4",
+    "koa-body": "^5.0.0",
+    "koa-router": "^10.1.1",
+    "lodash": "^4.17.21",
+    "log4js": "^6.5.2",
+    "mysql2": "^2.3.3",
+    "pg-hstore": "^2.3.4",
+    "redis": "^4.1.0",
+    "sequelize": "^6.20.1"
+  },
+  "devDependencies": {
+    "@types/eureka-js-client": "^4.5.5",
+    "@types/fs-extra": "^9.0.13",
+    "@types/koa": "^2.13.4",
+    "@types/koa-router": "^7.4.4",
+    "@types/lodash": "^4.14.182",
+    "esbuild": "^0.14.42",
+    "nodemon": "^2.0.16"
+  },
+  "nodemonConfig": {
+    "watch": [
+      "src",
+      "config.js"
+    ],
+    "execMap": {
+      "ts": "node scripts/build.js && node dist/main.js"
+    },
+    "env": {
+      "NODE_ENV": "development"
+    },
+    "ext": "ts,json,js",
+    "delay": 500
+  }
+}
