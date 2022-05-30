@@ -2,7 +2,7 @@
 
 ## 框架简介
 
-利用目前最新的 vite2 搭建的 vue3 前端开发框架，兼容 safari,chrome,android brower 等主流浏览器；  
+利用目前最新的 vite2 搭建的 vue3 前端开发框架，兼容 safari,chrome 等主流浏览器；  
 集成 mock 数据模拟服务，可以实现无任何其他依赖的前端开发；  
 使用最少的 package 依赖，实现最快的编译速度和最稳定高效的代码产出。依赖包大小仅 50M；集成
 Typescript，更好的类型推断和智能提示，助力大型应用开发
@@ -14,7 +14,7 @@ Typescript，更好的类型推断和智能提示，助力大型应用开发
 - pinia @2.x
 - vue-router @4.x
 - axios @0.27.x
-- vant @3.x
+- arco-design @2.x
 
 ## 环境要求
 
@@ -78,14 +78,3 @@ _注：所有目录名都采用小写加横线间隔，所有组件的文件名�
 | -package.json       | 依赖包和启动脚本                     |
 | -README.md          | 说明文档                             |
 | -vite.config.js     | vite 配置文件                        |
-
-## 未来规划
-
-- 集成 editorConfig,eslint 来在框架层面统一编码风格和规范
-- 同时支持 vue 和 react
-- 支持单入口和多入口轻松可配
-- 自动划部署
-
-## 升级日志
-
-- 2.0.0 初始版本
