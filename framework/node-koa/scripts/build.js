@@ -1,5 +1,6 @@
 const esbuild = require('esbuild')
 const fs = require('fs-extra')
+const { dependencies } = require('../package.json')
 
 const targetDir = 'dist'
 const isDev = process.env.NODE_ENV === 'development'
@@ -17,6 +18,7 @@ const isDev = process.env.NODE_ENV === 'development'
     format: 'cjs',
     minify: !isDev,
     sourcemap: isDev,
+    external: Object.keys(dependencies),
   })
   if (res.errors.length) {
     return
@@ -24,4 +26,9 @@ const isDev = process.env.NODE_ENV === 'development'
   if (isDev) return
   // copy file
   await fs.copyFile('config.js', `${targetDir}/config.js`)
+  await fs.copyFile('package.json', `${targetDir}/package.json`)
+  await fs.copyFile('package-lock.json', `${targetDir}/package-lock.json`)
+  if (fs.existsSync('public')) {
+    await fs.copy('public', `${targetDir}/public`)
+  }
 })()
