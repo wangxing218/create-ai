@@ -15,6 +15,7 @@
   "author": "wangxing218",
   "license": "ISC",
   "dependencies": {
+    "async-validator": "^4.1.1",
     "eureka-js-client": "^4.5.0",
     "fs-extra": "^10.1.0",
     "koa": "^2.13.4",

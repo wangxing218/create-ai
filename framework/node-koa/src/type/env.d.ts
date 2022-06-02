@@ -29,3 +29,8 @@ type Params = {
   endTime?: string
   status?: string | number
 }
+
+// 公共接口
+interface AnyObject {
+  [key: ?string]: any
+}
