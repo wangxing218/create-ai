@@ -29,8 +29,8 @@
         <a-pagination
           size="small"
           :total="state.total"
-          v-model:cruuent="state.pageIndex"
-          @page-change="getDataList"
+          v-model:current="state.pageIndex"
+          @change="getDataList"
         />
       </div>
     </div>

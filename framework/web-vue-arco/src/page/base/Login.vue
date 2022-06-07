@@ -62,13 +62,13 @@
     </div>
   </div>
 </template>
-
 <script lang="ts" setup>
+import { IconCheckCircle, IconEyeInvisible, IconMobile } from '@arco-design/web-vue/es/icon'
 import { loginUser } from '@/service/user'
-import { useUseStore } from '@/store'
+import { useUserStore } from '@/store'
 import { computed, reactive, ref } from 'vue'
 import { useRouter } from 'vue-router'
-const store = useUseStore()
+const store = useUserStore()
 const router = useRouter()
 // data
 const state = reactive({

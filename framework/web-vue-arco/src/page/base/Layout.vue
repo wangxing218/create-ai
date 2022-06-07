@@ -56,9 +56,17 @@
     </a-layout>
   </a-layout>
 </template>
-
 <script lang="ts" setup>
-import { useRouter } from 'vue-router'
+import {
+  IconHome,
+  IconApps,
+  IconCopy,
+  IconUser,
+  IconPoweroff,
+  IconCheckSquare,
+} from '@arco-design/web-vue/es/icon'
+
+import { useRouter, RouterView } from 'vue-router'
 
 const router = useRouter()
 
