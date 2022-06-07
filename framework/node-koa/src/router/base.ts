@@ -1,7 +1,7 @@
 import { redis } from '@/lib/redis'
 import { error, list, success } from '@/util/resp'
 import Router from 'koa-router'
-import { userModel } from '@/model/user'
+import { userModel, userRoleModel } from '@/model/user'
 import { check } from '@/middleware/check'
 
 const router = new Router()
@@ -31,6 +31,7 @@ router.get('/error', (ctx) => {
 // Redis信息
 router.get('/redis', async (ctx) => {
   redis.set('test:user', '这是一个非常有用的缓存')
+  redis.expire('test:user', 30)
   const caches = await redis.get('test:user')
   ctx.body = success({
     redis: caches,
@@ -44,18 +45,11 @@ router.get('/mysql', async (ctx) => {
     limit: 5,
     offset,
     order: [['id', 'desc']],
-  })
-  ctx.body = list(users.rows, users.count)
-})
-
-// mysql 列表
-router.get('/mysql', async (ctx) => {
-  const query = ctx.query
-  console.log('query :>> ', query)
-  const users = await userModel.findAndCountAll({
-    limit: 5,
-    offset: 1,
-    order: [['id', 'desc']],
+    include: {
+      model: userRoleModel,
+      attributes: ['roleId'],
+      limit: 2,
+    },
   })
   ctx.body = list(users.rows, users.count)
 })
@@ -68,17 +62,12 @@ router.get('/add', async (ctx) => {
   ctx.body = success(user)
 })
 
-interface ParamsReq {
-  id: number
-  name?: string
-}
-
 // 参数校验
 router.all(
   '/check',
   check({
     id: { type: 'number', required: true },
-    name: [{ type: 'string', pattern: /^1[3-9]\d{9}$/i }],
+    name: [{ type: 'string', pattern: /^1[3-9]\d{9}$/i, message: '手机号格式不正确' }],
   }),
   async (ctx) => {
     ctx.body = success({

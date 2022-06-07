@@ -27,8 +27,8 @@ const config = {
     filename: 'logs/app.log',
   },
   redis: {
-    uri: 'redis://10.50.70.1:36379',
-    password: '0Ckd1HohgbJ7',
+    uri: 'redis://10.50.70.3:36379',
+    password: 'gUhmKuDQDtH0',
     database: 0,
   },
   database: {

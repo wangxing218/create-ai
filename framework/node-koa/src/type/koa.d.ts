@@ -1,6 +1,6 @@
 import { BaseContext } from 'koa'
 /**
- * Context属性扩展
+ * Koa Context属性扩展
  */
 declare module 'koa' {
   interface BaseContext {

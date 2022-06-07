@@ -18,3 +18,19 @@ export const userModel = sequelize.define(
     updatedAt: false,
   },
 )
+
+export const userRoleModel = sequelize.define(
+  'userRole',
+  {
+    userId: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+    },
+    roleId: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+    },
+  },
+  { createdAt: false, updatedAt: false, tableName: 'user_role' },
+)
+userModel.hasMany(userRoleModel)

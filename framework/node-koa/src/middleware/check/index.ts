@@ -17,7 +17,7 @@ export function check(rules: Rules, type: CheckType = 'AUTO') {
       FILE: ctx.request.files,
       AUTO: ctx.method === 'GET' ? ctx.query : ctx.request.body,
     }[type]
-    if (!Object.keys(data).length) {
+    if (!Object.keys(rules).length) {
       await next()
       return
     }
