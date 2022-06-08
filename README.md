@@ -20,5 +20,6 @@ $ npm init ai@latest
 | --------------- | ------------------------------------------------------ |
 | web-vue-vant    | Web-H5: vite + vue + vant 【移动端 h5 开发框架】       |
 | web-vue-arco    | Web-PC: vite + vue + acro-design 【企业级 PC 端后台】  |
+| web-vue-element | Web-PC: vite + vue + element-plus 【企业级 PC 端后台】 |
 | node-koa        | Node-koa: koa + ts + sequelize 【轻量级 nodejs 后台】  |
 | java-springboot | Java-srpingboot: springboot + vue 【企业级 Java 后端】 |

@@ -79,6 +79,10 @@ const { version } = require('./package.json')
               title: 'Web-PC: vite + vue + acro-design 【企业级PC端后台】',
             },
             {
+              value: 'web-vue-element',
+              title: 'Web-PC: vite + vue + element-plus 【企业级PC端后台】',
+            },
+            {
               value: 'node-koa',
               title: 'Node-koa: koa + ts + sequelize 【轻量级nodejs后台】',
             },
