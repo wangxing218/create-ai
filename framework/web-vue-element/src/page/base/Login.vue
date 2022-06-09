@@ -137,7 +137,7 @@ const submit = async (form: FormInstance | undefined) => {
   top: 0;
   width: 100%;
   height: 100%;
-  background-image: linear-gradient(to right bottom, #0080ff, #f009ef);
+  background-image: linear-gradient(to right bottom, #86b2de, #966396);
   overflow: auto;
   z-index: 3;
   display: flex;

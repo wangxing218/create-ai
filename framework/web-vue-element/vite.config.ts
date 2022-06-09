@@ -3,7 +3,7 @@ import { defineConfig } from 'vite'
 import { vite2Ext } from 'apite'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
-import styleImport, { ElementPlusResolve } from 'vite-plugin-style-import'
+import styleImport from 'vite-plugin-style-import'
 import autoprefixer from 'autoprefixer'
 
 export default defineConfig({

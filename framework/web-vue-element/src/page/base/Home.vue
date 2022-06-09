@@ -8,8 +8,11 @@
           </el-form-item>
           <el-form-item label="创建时间">
             <el-date-picker
-              placeholder="请选择时间"
+              type="daterange"
               range-separator="-"
+              :unlink-panels="true"
+              start-placeholder="开始"
+              end-placeholder="结束"
               v-model="state.search.time"
             />
           </el-form-item>
