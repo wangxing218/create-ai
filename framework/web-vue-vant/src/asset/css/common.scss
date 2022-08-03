@@ -11,7 +11,7 @@ body,
 html {
   -webkit-text-size-adjust: 100%;
   // 移动端适配
-  font-size: calc(100vw / 3.15);
+  font-size: calc(100vw / 3.75);
 }
 
 body {
@@ -25,7 +25,7 @@ body {
 
 @media screen and (min-width: 560px) {
   html {
-    font-size: calc(560PX / 3.15);
+    font-size: calc(560PX / 3.75);
     background-color: #f0f0f0;
   }
 

@@ -21,6 +21,7 @@ export function check(rules: Rules, type: CheckType = 'AUTO') {
       await next()
       return
     }
+    let errMsg = ''
     try {
       await validator.validate(
         { ...data },
@@ -28,10 +29,14 @@ export function check(rules: Rules, type: CheckType = 'AUTO') {
           first: true,
         },
       )
-      await next()
     } catch ({ errors, fields }) {
-      ctx.body = error((errors as any)[0]?.message || '校验失败')
+      if (!errors) return
+      errMsg = (errors as any)[0]?.message || '校验失败'
+    }
+    if (errMsg) {
+      ctx.body = error(errMsg, 600)
       return
     }
+    await next()
   }
 }

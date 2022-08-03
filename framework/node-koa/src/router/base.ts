@@ -1,6 +1,6 @@
 import { redis } from '@/lib/redis'
 import { error, list, success } from '@/util/resp'
-import Router from 'koa-router'
+import Router from '@koa/router'
 import { userModel, userRoleModel } from '@/model/user'
 import { check } from '@/middleware/check'
 
