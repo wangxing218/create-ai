@@ -6,6 +6,7 @@ import { system } from '@/config'
 import { log } from '@/lib/log'
 import { errorsHandler } from '@/middleware/errors'
 import router from '@/router'
+import { start } from '@/lib/register'
 
 const app = new Koa()
 app.use(errorsHandler())
@@ -21,4 +22,5 @@ app.listen(system.port, system.host, () => {
   url.hostname = url.hostname === '0.0.0.0' ? '127.0.0.1' : url.hostname
   log.debug(`${cluster.isWorker ? 'Worker进程' : 'Master进程'} [PID = ${process.pid}] `)
   log.info(`Server is running at: ${url}`)
+  // start()
 })

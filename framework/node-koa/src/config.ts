@@ -12,14 +12,22 @@ const config = {
     cluster: 0, // 多进程，0不启用，1按cpu核心数自动启用，number>1按配置个数启用
   },
   eureka: {
-    service: ['http://10.50.60.201:33850/eureka/apps'],
+    service: 'http://eureka.com/eureka',
     registry: true,
     fetch: true,
+    proxy: '', // 访问微服务的代理
+  },
+  nacos: {
+    service: '',
+    namespace: 'public',
+    group: 'DEFAULT_GROUP',
+    registry: true,
+    proxy: '', // 访问微服务的代理
   },
   sso: {
-    clientId: 'pcp',
+    clientId: 'client',
     clientSecret: '123456',
-    uri: 'http://pcp-dev.agilines.cn:85',
+    uri: 'http://sso.abc.com',
   },
   log: {
     type: 'file,console',
@@ -27,8 +35,10 @@ const config = {
     filename: 'logs/app.log',
   },
   redis: {
-    uri: 'redis://10.50.70.3:36379',
-    password: 'gUhmKuDQDtH0',
+    uri: 'redis://127.0.0.1:36379',
+    password: '123456',
+    nodes: '',
+    name: 'mymaster',
     database: 0,
   },
   database: {
@@ -37,9 +47,9 @@ const config = {
     password: '123456',
   },
   mongo: {
-    uri: 'mongodb://10.50.70.2:27017/admin',
+    uri: 'mongodb://127.0.0.1:27017/admin',
     username: 'admin',
-    password: 'RXuFKKJGC9D6',
+    password: '123456',
   },
 }
 

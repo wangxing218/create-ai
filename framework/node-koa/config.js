@@ -5,7 +5,7 @@ module.exports = {
   },
   redis: {
     uri: 'redis://127.0.0.1:6379',
-    password: '111222',
+    password: '123456',
     database: 0,
   },
 }
